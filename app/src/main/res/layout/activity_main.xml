@@ -12,9 +12,9 @@
     <EditText
         android:layout_alignParentTop="true"
         android:id="@+id/etSearch"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Search Here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +23,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/etSearch"
         android:id="@+id/rvList"
+        tools:listitem="@layout/item_user"
+        tools:itemCount="5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

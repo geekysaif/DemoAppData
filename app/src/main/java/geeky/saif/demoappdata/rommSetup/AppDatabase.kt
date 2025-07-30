@@ -1,5 +1,6 @@
 package geeky.saif.demoappdata.rommSetup
 
+import geeky.saif.demoappdata.rommSetup.User
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room

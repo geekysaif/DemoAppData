@@ -12,7 +12,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         //for name
-        val name = intent.getStringExtra("name")
+        val name = intent.getStringExtra("username")
         val strName = findViewById<TextView>(R.id.name)
         strName.text = "userName: $name"
 
@@ -33,7 +33,7 @@ class DetailActivity : AppCompatActivity() {
 
 
         //for address
-        val address = intent.getStringExtra("address")
+        val address = intent.getStringExtra("street")
         val strAddress = findViewById<TextView>(R.id.address)
         strAddress.text = "address: $address"
 

@@ -1,6 +1,8 @@
 package geeky.saif.demoappdata.adapters
 
 
+
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +10,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import geeky.saif.demoappdata.MainActivity
 import geeky.saif.demoappdata.R
 import geeky.saif.demoappdata.rommSetup.User
 
- class UserAdapter
+
+class UserAdapter
     (
+    private var context: Context,
     private var users: List<User>,
     private val OnItemClick: (User) -> Unit
 ): RecyclerView.Adapter<UserAdapter.UserViewHolder>()
@@ -46,8 +51,8 @@ import geeky.saif.demoappdata.rommSetup.User
             val user = users[position]
             holder.name.text = user.name
             holder.email.text = user.email
-            holder.comapanyname.text = user.companyName
-           // Glide.with().load("https://i.pravatar.cc/150?img=${user.photo}").into(holder.profileImage);
+            holder.comapanyname.text = user.username
+            Glide.with(context).load("https://i.pravatar.cc/150?img=${user.id}").into(holder.profileImage);
 
             holder.itemView.setOnClickListener {
                 OnItemClick(user)
