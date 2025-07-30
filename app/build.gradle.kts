@@ -51,17 +51,27 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //for room
-    implementation("androidx.room:room-runtime:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+//    implementation("androidx.room:room-runtime:2.6.1")
+//    kapt("androidx.room:room-compiler:2.6.1")
+    implementation ("androidx.room:room-ktx:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
-    kapt
-    {
-        correctErrorTypes= true
-    }
+}
+
+kapt {
+    correctErrorTypes = true
+    // You can also add other configurations here, such as:
+    // javacOptions {
+    //     option("SomeJavacOption", "OptionValue")
+    // }
+    // arguments {
+    //     arg("SomeKaptArgument", "ArgumentValue")
+    // }
 }

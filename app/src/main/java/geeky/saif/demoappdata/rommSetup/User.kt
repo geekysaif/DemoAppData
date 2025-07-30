@@ -1,5 +1,8 @@
 package geeky.saif.demoappdata.rommSetup
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 @Entity(tableName="users")
 data class User(
     @PrimaryKey val id:Int,
@@ -8,5 +11,6 @@ data class User(
     val phone:String,
     val website:String,
     val address:String,
+    val photo:String,
     val companyName:String
 )

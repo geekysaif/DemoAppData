@@ -7,7 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import geeky.saif.demoappdata.adapters.UserAdapter
 import geeky.saif.demoappdata.apiSetUp.RetrofitInstance
@@ -30,9 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         db = AppDatabase.getInstance(this)
 
-        adapter =UserAdapter(listOf()){
-
-            user -> val intent : Intent(this,DetailActivity::class.java)
+        adapter = UserAdapter(listOf()){
+            user -> val intent= Intent(this,DetailActivity::class.java)
             intent.putExtra("username", user.name)
             intent.putExtra("email", user.email)
             intent.putExtra("phone", user.phone)
@@ -40,6 +41,13 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("address", user.address)
             startActivity(intent)
         }
+
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter =adapter
+
+       // adapter.updateData(db.userDao().getAll())
+
 
         lifecycleScope.launch {
             val local = db.userDao().getAll()
@@ -56,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
         etSearch.addTextChangedListener {
             val query =it.toString().lowercase()
             val filteredList = allUsers.filter{
@@ -66,4 +75,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
 }
